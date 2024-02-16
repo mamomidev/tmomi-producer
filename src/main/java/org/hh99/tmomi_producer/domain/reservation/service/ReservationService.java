@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ReservationService {
-	private KafkaTemplate<String, String> kafkaTemplate;
+	private final KafkaTemplate<String, String> kafkaTemplate;
 
 	public void reservationEventIdSend(Long eventTimeId) {
 		kafkaTemplate.send("reservationEventTimeId" + eventTimeId, "자리를 주세요");
