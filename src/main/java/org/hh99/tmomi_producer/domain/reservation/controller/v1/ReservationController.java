@@ -18,6 +18,6 @@ public class ReservationController {
 
 	@PostMapping("/eventTimes/reservation")
 	public void reservation(@RequestBody ReservationDto reservationDto) {
-		reservationService.sendReservationEventId(reservationDto);
+		reservationService.sendReservationInformation(reservationDto);
 	}
 }

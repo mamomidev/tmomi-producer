@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class ReservationService {
 	private final KafkaTemplate<String, ReservationDto> kafkaTemplate;
 
-	public void sendReservationEventId(ReservationDto reservationDto) {
+	public void sendReservationInformation(ReservationDto reservationDto) {
 		kafkaTemplate.send("reservation", reservationDto);
 	}
 }
