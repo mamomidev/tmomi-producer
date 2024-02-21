@@ -1,4 +1,4 @@
-package org.hh99.tmomi_producer.domain.reservation.dto;
+package org.hh99.reservation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
