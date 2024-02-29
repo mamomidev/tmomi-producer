@@ -36,12 +36,12 @@ public class KafkaConfig {
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
-		System.setProperty("AWS_ACCESS_KEY_ID", awsAccessKeyId);
-		System.setProperty("AWS_SECRET_ACCESS_KEY", awsSecretAccessKey);
+		config.put("AWS_ACCESS_KEY_ID", awsAccessKeyId);
+		config.put("AWS_SECRET_ACCESS_KEY", awsSecretAccessKey);
 
 		config.put(AdminClientConfig.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
 		config.put(SaslConfigs.SASL_MECHANISM, "AWS_MSK_IAM");
-		config.put(SaslConfigs.SASL_JAAS_CONFIG,"software.amazon.msk.auth.iam.IAMLoginModule required awsProfileName=\"tmomi-kafka\";");
+		config.put(SaslConfigs.SASL_JAAS_CONFIG,"software.amazon.msk.auth.iam.IAMLoginModule required;");
 		config.put(SaslConfigs.SASL_CLIENT_CALLBACK_HANDLER_CLASS, "software.amazon.msk.auth.iam.IAMClientCallbackHandler");
 
 		return new DefaultKafkaProducerFactory<>(config);
