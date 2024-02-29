@@ -35,8 +35,9 @@ public class KafkaConfig {
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-		config.put("AWS_ACCESS_KEY_ID", awsAccessKeyId);
-		config.put("AWS_SECRET_ACCESS_KEY", awsSecretAccessKey);
+
+		System.setProperty("AWS_ACCESS_KEY_ID", awsAccessKeyId);
+		System.setProperty("AWS_SECRET_ACCESS_KEY", awsSecretAccessKey);
 
 		config.put(AdminClientConfig.SECURITY_PROTOCOL_CONFIG, "SASL_SSL");
 		config.put(SaslConfigs.SASL_MECHANISM, "AWS_MSK_IAM");
