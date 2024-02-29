@@ -48,14 +48,6 @@ public class KafkaConfig {
 	}
 
 	@Bean
-	public NewTopic createTopic() {
-		return TopicBuilder.name(TOPIC_NAME)
-			.partitions(1)
-			.replicas(1)
-			.build();
-	}
-
-	@Bean
 	public KafkaTemplate<String, ReservationDto> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
 	}
