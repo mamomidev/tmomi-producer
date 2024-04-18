@@ -9,8 +9,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ReservationService {
-	private final KafkaTemplate<String, ReservationDto> kafkaTemplate;
 
+	private final KafkaTemplate<String, ReservationDto> kafkaTemplate;
 	public void sendReservationInformation(ReservationDto reservationDto) {
 		kafkaTemplate.send("reservation", reservationDto);
 	}
